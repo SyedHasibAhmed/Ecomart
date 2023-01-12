@@ -61,10 +61,11 @@
             </div>
         </form>
 
-
-        <p class="mb-1">
-            <a href="#">I forgot my password</a>
-        </p>
+        @if (Route::has('password.request'))
+            <p class="mb-1">
+                <a href="{{ route('password.request') }}">I forgot my password</a>
+            </p>
+        @endif
 
         </div>
         <!-- /.card-body -->
