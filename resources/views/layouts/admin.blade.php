@@ -14,6 +14,10 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('dashboard-assets') }}/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="{{ asset('dashboard-assets') }}/plugins/toastr/toastr.css">
+
+   <!-- summernote -->
+   <link rel="stylesheet" href="{{ asset('dashboard-assets') }}/plugins/summernote/summernote-bs4.css">
+
   <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset('dashboard-assets') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{ asset('dashboard-assets') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -72,7 +76,8 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('dashboard-assets') }}/dist/js/pages/dashboard2.js"></script>
 <script src="{{ asset('dashboard-assets') }}/plugins/toastr/toastr.min.js"></script>
-<script src="{{ asset('dashboard-assets') }}/plugins/sweetalert/sweetalert.min.js"></script>
+<!-- <script src="{{ asset('dashboard-assets') }}/plugins/sweetalert/sweetalert.min.js"></script> -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
     $(document).on("click", "#delete", function(e){
         e.preventDefault();
@@ -86,16 +91,14 @@
         })
         .then((willDelete) => {
         if (willDelete) {
-            swal("Poof! Your imaginary file has been deleted!", {
-            icon: "success",
-            });
+            window.location.href = link;
         } else {
             swal("Your imaginary file is safe!");
         }
         });
     });
 </script>
-    <!-- <script>
+    <script>
         $(document).on("click", "#logout", function(e){
             e.preventDefault();
             var link = $(this).attr("href");
@@ -114,7 +117,7 @@
                 }
             });
         });
-</script> -->
+</script>
 <script>
   @if(Session::has('messege'))
     var type="{{Session::get('alert-type','info')}}"
@@ -148,6 +151,14 @@
 <script src="{{ asset('dashboard-assets') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="{{ asset('dashboard-assets') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="{{ asset('dashboard-assets') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+<script src="{{ asset('dashboard-assets') }}/plugins/summernote/summernote-bs4.min.js"></script>
+<script>
+  $(function () {
+    // Summernote
+    $('.textarea').summernote()
+  })
+</script>
 
 <script>
   $(function () {

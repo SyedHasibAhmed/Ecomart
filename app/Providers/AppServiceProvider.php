@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Ecomart Currency
+        $settings=DB::table('settings')->first();
+        view()->share('setting',$settings);  // share the settings first row in whole application
     }
 }

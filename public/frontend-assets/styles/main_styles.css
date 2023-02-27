@@ -1,5 +1,5 @@
 @charset "utf-8";
-******************************/
+/******************************/
 
 /***********
 1. Fonts
@@ -84,14 +84,8 @@ p a:hover::after
 {
 	opacity: 0.2;
 }
-::selection
-{
 
-}
-p::selection
-{
 
-}
 h1{font-size: 48px;}
 h2{font-size: 36px;}
 h3{font-size: 24px;}
@@ -105,15 +99,7 @@ h1, h2, h3, h4, h5, h6
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
-h1::selection,
-h2::selection,
-h3::selection,
-h4::selection,
-h5::selection,
-h6::selection
-{
 
-}
 .form-control
 {
 	color: #db5246;
@@ -614,10 +600,7 @@ section
 	line-height: 48px;
 	cursor: pointer;
 }
-.custom_dropdown_placeholder i
-{
 
-}
 .custom_list
 {
 	text-align: left;
@@ -676,8 +659,6 @@ select
 	width: auto;
 	margin-left: 10px;
 	outline: none;
-	-webkit-appearance: none;
-	-moz-appearance: none;
 	border-bottom: 2px solid #555;
 	color: #7b00ff;
 	-webkit-transition: all .4s ease-in-out;
@@ -692,8 +673,6 @@ select option
 	border: 0;
 	border-bottom: 1px solid #555;
 	padding: 10px;
-	-webkit-appearance: none;
-	-moz-appearance: none;
 }
 .header_search_button
 {
@@ -898,6 +877,7 @@ select option
 .cat_menu li
 {
 	display: block;
+    padding: 0px;
 	position: relative;
 	width: auto;
 	height: 46px;
@@ -944,6 +924,7 @@ select option
 .cat_menu li ul
 {
 	display: block;
+    padding: 0px;
 	position: absolute;
 	top: 35px;
 	left: 100%;
@@ -1049,7 +1030,7 @@ select option
 	display: block;
 	position: relative;
 	border-bottom: solid 1px rgba(255,255,255,0.1);
-	vertical-align: middle;
+	/* vertical-align: middle; */
 }
 .page_menu_item > a
 {
@@ -3490,7 +3471,7 @@ select option
 	margin-bottom: 18px;
 	margin-top: -10px;
 }
-.footer .logo
+/* .footer .logo
 {
 	top: auto;
 	-webkit-transform: transform: none;
@@ -3498,7 +3479,7 @@ select option
     -ms-transform: transform: none;
     -o-transform: transform: none;
     transform: none;
-}
+} */
 .footer .logo a
 {
 	color: #000000;

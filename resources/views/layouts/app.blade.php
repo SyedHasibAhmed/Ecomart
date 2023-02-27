@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Ecomart</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="OneTech shop project">
@@ -19,8 +19,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend-assets') }}/plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend-assets') }}/plugins/slick-1.8.0/slick.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend-assets') }}/styles/main_styles.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend-assets') }}/styles/responsive.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend-assets') }}/styles/product_styles.css">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('frontend-assets') }}/styles/responsive.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend-assets') }}/styles/product_styles.css"> -->
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend-assets') }}/styles/product_responsive.css">
 
 </head>
@@ -89,7 +89,7 @@
 					<!-- Logo -->
 					<div class="col-lg-2 col-sm-3 col-3 order-1">
 						<div class="logo_container">
-							<div class="logo"><img src="{{ asset('frontend-assets') }}/images/logo.png" width="160px" alt=""></div>
+							<div class="logo"><a href="{{ url('/') }}"><img src="{{ asset('frontend-assets') }}/images/logo.png" width="160px" alt=""></a></div>
 						</div>
 					</div>
 
@@ -153,7 +153,7 @@
 
 
 		<!-- Menu -->
-
+    @yield('navbar')
 	</header>
 
 	<!-- Banner -->
