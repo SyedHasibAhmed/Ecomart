@@ -36,7 +36,7 @@ class SubcategoryController extends Controller
         $data = array();
         $data['category_id'] = $request->category_id;
         $data['subcategory_name'] = $request->subcategory_name;
-        $data['subcat_slug'] = Str::slug($request->subcategory_name, '-'); //The Str::slug method generates a       URL friendly "slug"
+        $data['subcat_slug'] = Str::slug($request->subcategory_name, '-'); //The Str::slug method generates a URL friendly "slug"
         //dd($data);
         DB::table('subcategories')->insert($data); // Data (Subcategory) insert
 

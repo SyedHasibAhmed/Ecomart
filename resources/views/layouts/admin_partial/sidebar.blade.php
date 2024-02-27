@@ -30,6 +30,14 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.order.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>Orders</p>
+            </a>
+          </li>
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -111,6 +119,13 @@
           </li>
 
           <li class="nav-item">
+            <a href="{{ route('ticket.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>Ticket</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -147,6 +162,13 @@
                 <a href="{{ route('website.setting') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Website Setting</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ route('payment.gateway') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Payment Gateway</p>
                 </a>
               </li>
 

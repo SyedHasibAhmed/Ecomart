@@ -37,7 +37,7 @@ class SettingController extends Controller
         $data['instagram']=$request->instagram;
         $data['linkedin']=$request->linkedin;
         $data['youtube']=$request->youtube;
-        if ($request->logo) {  //jodi new logo die thake
+        if ($request->logo) {  //if there new logo given
 
 
             $logo=$request->logo;
@@ -46,22 +46,55 @@ class SettingController extends Controller
             $path = public_path('files/setting/' . $logo_name);
             Image::make($logo->getRealPath())->resize(320,120)->save($path);
             $data['logo']='files/setting/'.$logo_name;
-        }else{   //jodi new logo na dey
+        }else{   //if not given new logo
             $data['logo']=$request->old_logo;
         }
 
-        if ($request->favicon) {  //jodi new logo die thake
+        if ($request->favicon) {  //if new logo given
               $favicon=$request->favicon;
               $favicon_name=uniqid().'.'.$favicon->getClientOriginalExtension();
               $path = public_path('files/setting/' . $favicon_name);
               Image::make($favicon->getRealPath())->resize(32,32)->save($path);
               $data['favicon']='files/setting/'.$favicon_name;
-        }else{   //jodi new logo na dey
+        }else{   //if not given new logo
             $data['favicon']=$request->old_favicon;
         }
 
         DB::table('settings')->where('id',$id)->update($data);
         $notification=array('messege' => 'Setting Updated!', 'alert-type' => 'success');
+        return redirect()->back()->with($notification);
+    }
+
+    //__payment gateway
+    public function PaymentGateway()
+    {
+        $aamarpay=DB::table('payment_gateway')->first();
+        $surjopay=DB::table('payment_gateway')->skip(1)->first();
+        $ssl=DB::table('payment_gateway')->skip(2)->first();
+        return view('admin.bdpayment_gateway.edit',compact('aamarpay','surjopay','ssl'));
+    }
+
+    //__aamarpay update
+    public function AamarpayUpdate(Request $request)
+    {
+        $data=array();
+        $data['store_id']=$request->store_id;
+        $data['signature_key']=$request->signature_key;
+        $data['status']=$request->status;
+        DB::table('payment_gateway')->where('id',$request->id)->update($data);
+        $notification=array('messege' => 'Payment Gateway Update Updated!', 'alert-type' => 'success');
+        return redirect()->back()->with($notification);
+    }
+
+    //__update surjopay
+    public function SurjopayUpdate(Request $request)
+    {
+        $data=array();
+        $data['store_id']=$request->store_id;
+        $data['signature_key']=$request->signature_key;
+        $data['status']=$request->status;
+        DB::table('payment_gateway')->where('id',$request->id)->update($data);
+        $notification=array('messege' => 'Payment Gateway Update Updated!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     }
 }

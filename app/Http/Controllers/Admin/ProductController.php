@@ -153,9 +153,9 @@ class ProductController extends Controller
        $data['video']=$request->video;
        $data['featured']=$request->featured;
        $data['today_deal']=$request->today_deal;
-      $data['product_slider']=$request->product_slider;
+       $data['product_slider']=$request->product_slider;
        $data['status']=$request->status;
-      // $data['trendy']=$request->trendy;
+       $data['trendy_product']=$request->trendy_product;
        $data['admin_id']=Auth::id();
        $data['date']=date('d-m-Y');
        $data['month']=date('F');
@@ -202,7 +202,7 @@ class ProductController extends Controller
         return view('admin.product.edit',compact('product','category','brand','warehouse','pickup_point','childcategory'));
     }
 
-    //__update product__//
+    //update product
     public function update(Request $request)
     {
         $validated = $request->validate([
@@ -245,9 +245,9 @@ class ProductController extends Controller
        $data['today_deal']=$request->today_deal;
        $data['product_slider']=$request->product_slider;
        $data['status']=$request->status;
-       //$data['trendy']=$request->trendy;
+       $data['trendy_product']=$request->trendy_product;
 
-       //__old thumbnail ase kina__ jodi thake new thumbnail insert korte hobe
+       //Is there no old thumbnail exist, if then insert new thumbnail
        $thumbnail = $request->file('thumbnail');
         if($thumbnail) {
 
@@ -258,7 +258,7 @@ class ProductController extends Controller
             $data['thumbnail']='files/product/'.$photoname;
         }
 
-       //__multiple image update__//
+       //multiple image update
 
         $old_images = $request->has('old_images');
         if($old_images){

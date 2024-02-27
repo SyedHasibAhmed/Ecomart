@@ -195,7 +195,7 @@
                   <div class="row">
                     <div class="form-group col-lg-12">
                       <label for="exampleInputPassword1">Video Embed Code</label>
-                      <textarea class="form-control" name="video">{{ $product->video }}</textarea>
+                      <input class="form-control" name="video" value="{{ $product->video }}" placeholder="Only code after embed word">
                     </div>
                   </div>
                 </div>
